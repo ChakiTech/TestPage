@@ -1,54 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChakiTech - Home</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ChakiTech | Dynamic Website</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <h1>ChakiTech</h1>
+    <div class="logo">ChakiTech</div>
     <nav>
-      <ul class="navbar">
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <ul class="nav-links">
+        <li><a href="#" data-tab="home" class="active">Home</a></li>
+        <li><a href="#" data-tab="about">About</a></li>
+        <li><a href="#" data-tab="services">Services</a></li>
+        <li><a href="#" data-tab="portfolio">Portfolio</a></li>
+        <li><a href="#" data-tab="contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section id="home">
-      <h2>Welcome to ChakiTech</h2>
-      <p>Your one-stop solution for modern tech services.</p>
+    <section id="home" class="tab active">
+      <h1>Welcome to ChakiTech</h1>
+      <p>Leading the future with technology, innovation, and creativity.</p>
     </section>
 
-    <section id="about">
-      <h2>About Us</h2>
-      <p>We are a passionate team building innovative technology solutions for the future.</p>
+    <section id="about" class="tab">
+      <h1>About Us</h1>
+      <p>ChakiTech is a dynamic tech company committed to building intelligent solutions for modern problems.</p>
     </section>
 
-    <section id="services">
-      <h2>Our Services</h2>
-      <p>We offer web development, mobile apps, cloud services, and more.</p>
+    <section id="services" class="tab">
+      <h1>Our Services</h1>
+      <ul>
+        <li>Web & App Development</li>
+        <li>Cloud Solutions</li>
+        <li>Tech Consulting</li>
+        <li>Cybersecurity</li>
+      </ul>
     </section>
 
-    <section id="portfolio">
-      <h2>Portfolio</h2>
-      <p>Check out our latest projects and case studies.</p>
+    <section id="portfolio" class="tab">
+      <h1>Our Portfolio</h1>
+      <p>We’ve worked with startups and enterprises to deliver impactful solutions.</p>
     </section>
 
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <p>Email: info@chakitech.com | Phone: +123 456 7890</p>
+    <section id="contact" class="tab">
+      <h1>Contact Us</h1>
+      <p>Email: contact@chakitech.com</p>
+      <p>Phone: +123 456 7890</p>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 ChakiTech. All rights reserved.</p>
   </footer>
-</body>
-</html>
+
+  <script src="script.js"></
