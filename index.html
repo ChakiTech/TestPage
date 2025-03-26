@@ -2,54 +2,113 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ChakiTech Pro</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dynamic Website with Tabs</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+    }
+    .navbar {
+      display: flex;
+      background-color: #333;
+      overflow: hidden;
+    }
+    .navbar button {
+      flex: 1;
+      padding: 14px 20px;
+      background-color: inherit;
+      color: white;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .navbar button:hover {
+      background-color: #575757;
+    }
+    .navbar button.active {
+      background-color: #04AA6D;
+    }
+    .tab-content {
+      display: none;
+      padding: 20px;
+      background-color: white;
+      animation: fadeEffect 0.5s;
+    }
+    .tab-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    @keyframes fadeEffect {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @media (max-width: 600px) {
+      .navbar button {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="logo">ChakiTech</div>
-    <nav>
-      <ul class="nav">
-        <li><a href="#">MacBook</a></li>
-        <li><a href="#">iPhone</a></li>
-        <li><a href="#">Vision</a></li>
-        <li><a href="#">Support</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <h1>ChakiBook Pro</h1>
-    <p>Supercharged by innovation. Inspired by elegance.</p>
-    <img src="https://www.apple.com/v/macbook-pro-14-and-16/g/images/overview/hero/hero_intro_endframe__e6khcva4hkeq_large.jpg" alt="MacBook" />
-  </section>
+  <div class="navbar">
+    <button class="tablink active" onclick="openTab(event, 'Home')">Home</button>
+    <button class="tablink" onclick="openTab(event, 'Gallery')">Gallery</button>
+    <button class="tablink" onclick="openTab(event, 'About')">About</button>
+    <button class="tablink" onclick="openTab(event, 'Services')">Services</button>
+    <button class="tablink" onclick="openTab(event, 'Contact')">Contact</button>
+  </div>
 
-  <section class="reveal">
-    <div class="content">
-      <h2>Power. Redefined.</h2>
-      <p>The next-gen chip delivers unparalleled performance for creators and pros.</p>
-    </div>
-  </section>
+  <div id="Home" class="tab-content" style="display:block">
+    <h2>Welcome to Our Website</h2>
+    <img src="https://source.unsplash.com/800x400/?technology" alt="Tech Image" />
+    <p>Explore the future with our dynamic content and engaging layout.</p>
+  </div>
 
-  <section class="reveal dark">
-    <div class="content">
-      <h2>Visual Perfection</h2>
-      <p>Liquid Retina XDR. Every pixel matters.</p>
-    </div>
-  </section>
+  <div id="Gallery" class="tab-content">
+    <h2>Image Gallery</h2>
+    <img src="https://source.unsplash.com/800x400/?gallery,nature" alt="Gallery Image" />
+    <p>View some of our best snapshots from around the world.</p>
+  </div>
 
-  <section class="reveal">
-    <div class="content">
-      <h2>All-Day Battery</h2>
-      <p>Stay powered from sunrise to starlight.</p>
-    </div>
-  </section>
+  <div id="About" class="tab-content">
+    <h2>About Us</h2>
+    <img src="https://source.unsplash.com/800x400/?team,people" alt="Team Image" />
+    <p>We are a creative team delivering smart and beautiful solutions.</p>
+  </div>
 
-  <footer>
-    <p>&copy; 2025 ChakiTech. Inspired by innovation.</p>
-  </footer>
+  <div id="Services" class="tab-content">
+    <h2>Our Services</h2>
+    <img src="https://source.unsplash.com/800x400/?services,design" alt="Service Image" />
+    <p>We offer design, development, and consultancy services to boost your business.</p>
+  </div>
 
-  <script src="script.js"></script>
+  <div id="Contact" class="tab-content">
+    <h2>Contact Us</h2>
+    <img src="https://source.unsplash.com/800x400/?contact,phone" alt="Contact Image" />
+    <p>Email us at contact@example.com or call us at +123 456 7890.</p>
+  </div>
+
+  <script>
+    function openTab(evt, tabName) {
+      var i, content, tablinks;
+      content = document.getElementsByClassName("tab-content");
+      for (i = 0; i < content.length; i++) {
+        content[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+
 </body>
 </html>
