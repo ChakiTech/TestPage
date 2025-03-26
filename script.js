@@ -69,3 +69,29 @@ footer {
   text-align: center;
   padding: 15px;
 }
+const navLinks = document.querySelectorAll(".nav-links a");
+const tabs = document.querySelectorAll(".tab");
+
+navLinks.forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute("data-tab");
+
+    // Remove active classes
+    navLinks.forEach(l => l.classList.remove("active"));
+    tabs.forEach(tab => {
+      tab.classList.remove("active");
+    });
+
+    // Add active class to clicked nav
+    link.classList.add("active");
+
+    const targetTab = document.getElementById(targetId);
+
+    // Force reflow to restart animation
+    void targetTab.offsetWidth;
+
+    // Show the target tab with animation
+    targetTab.classList.add("active");
+  });
+});
